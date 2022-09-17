@@ -1,0 +1,5 @@
+в контролере слое советую возвращать list а не iterable
+лучше @Data не использувать на @Entity. Посмотри получше lombok как лучше применять и какие проблемы может принести
+нет @Entity на OrderItems. И не привязан к другим классам ентити. Советую получше разобраться назначение здесь OrderItems таблицы
+отсутствует слой service
+public Product patchProduct(@PathVariable("productId") Long productId, @RequestBody Product patch) не понятно зачем patch использовался. Можно put все обновлять. В твоем случае цену получается не обновишь
