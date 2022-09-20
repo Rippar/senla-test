@@ -1,7 +1,7 @@
-package by.murzo.inetshop.senlatest.controller;
+package by.murzo.inetshop.controller;
 
-import by.murzo.inetshop.senlatest.model.Order;
-import by.murzo.inetshop.senlatest.repository.OrderRepository;
+import by.murzo.inetshop.model.Order;
+import by.murzo.inetshop.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

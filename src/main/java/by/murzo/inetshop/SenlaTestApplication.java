@@ -1,4 +1,4 @@
-package by.murzo.inetshop.senlatest;
+package by.murzo.inetshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

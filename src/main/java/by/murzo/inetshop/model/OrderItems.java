@@ -1,9 +1,13 @@
-package by.murzo.inetshop.senlatest.model;
+package by.murzo.inetshop.model;
 
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Table;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
+//@Entity
+//@Table(name = "order_items")
 public class OrderItems {
 
     private Long orderId;

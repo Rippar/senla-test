@@ -1,4 +1,4 @@
-package by.murzo.inetshop.senlatest.model;
+package by.murzo.inetshop.model;
 
 import lombok.Data;
 
@@ -10,12 +10,13 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "orders")
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long userId;
     private String status;
