@@ -1,7 +1,9 @@
 package by.murzo.inetshop.config;
 
+import by.murzo.inetshop.model.Order;
 import by.murzo.inetshop.model.Product;
 import by.murzo.inetshop.model.User;
+import by.murzo.inetshop.repository.OrderRepository;
 import by.murzo.inetshop.repository.ProductRepository;
 import by.murzo.inetshop.repository.UserRepository;
 import org.springframework.boot.ApplicationRunner;

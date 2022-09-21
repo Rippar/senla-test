@@ -2,30 +2,25 @@ package by.murzo.inetshop.controller;
 
 import by.murzo.inetshop.model.Order;
 import by.murzo.inetshop.repository.OrderRepository;
+import by.murzo.inetshop.service.OrderService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/api/orders", produces = "application/json")
 public class OrderController {
 
-    private final OrderRepository repository;
-
-    public OrderController(OrderRepository repository) {
-        this.repository = repository;
-    }
+    private final OrderService orderService;
 
     @PostMapping(consumes = "application/json")
     public Long postOrder(@RequestBody Order order) {
-        //todo the ProductStatus and userId check
-        repository.save(order);
-        return order.getId();
+        return orderService.saveOrder(order);
     }
 
     @GetMapping(params = "sorted")
     public Iterable<Order> sortedOrders() {
-        //todo the sorting by userId and createdAt
-        return repository.findAll();
+        return orderService.getOrdersSortedByUserAndCreatedAt();
     }
 }
