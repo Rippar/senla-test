@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/orders", produces = "application/json")
@@ -20,7 +22,7 @@ public class OrderController {
     }
 
     @GetMapping(params = "sorted")
-    public Iterable<Order> sortedOrders() {
+    public List<Order> sortedOrders() {
         return orderService.getOrdersSortedByUserAndCreatedAt();
     }
 }

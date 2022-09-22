@@ -6,6 +6,8 @@ import by.murzo.inetshop.model.Product;
 import by.murzo.inetshop.repository.ProductRepository;
 import by.murzo.inetshop.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,9 +40,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProductsSortedByOrders() {
-        //todo
-//        PageRequest page = PageRequest.of(0,12,Sort.by("quantity").descending());
-//        return repository.findAll(page).getContent();
         Iterable<Product> products = repository.findAll();
         return StreamSupport.stream(products.spliterator(), false).collect(Collectors.toList());
     }

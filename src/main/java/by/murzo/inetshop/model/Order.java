@@ -1,8 +1,6 @@
 package by.murzo.inetshop.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,9 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Builder()
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @ToString(onlyExplicitlyIncluded = true)
@@ -32,7 +28,7 @@ public class Order implements Serializable {
     private Long id;
     @Column
     private String status;
-    @Builder.Default
+
     @Column
     private Date createdAt = new Date();
 
@@ -40,7 +36,12 @@ public class Order implements Serializable {
     @JoinColumn(name = "users_id")
     private User user;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderItems> productsQuantity;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> productsQuantity = new ArrayList<>();
 
+    public Order(String status, User user) {
+        this.status = status;
+        this.user = user;
+        this.user.getOrders().add(this);
+    }
 }

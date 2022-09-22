@@ -11,8 +11,8 @@ import java.io.Serializable;
 public class OrderItemKey implements Serializable {
 
     @Column(name = "orders_id")
-    private Long orderId;
+    Long orderId;
 
     @Column(name = "products_id")
-    private Long productId;
+    Long productId;
 }
