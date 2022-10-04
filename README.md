@@ -13,7 +13,7 @@ The application allows to administrate user's orders via REST-API
 * Create product. Generate the random status while creating product (from enum ProductStatus: OUT_OF_STOCK, IN_STOCK, RUNNING_LOW) ✅
 * Update product ✅
 * Delete product. Product with status IN_STOCK and RUNNING_LOW can't be deleted. ✅
-* Get the list of all products sorted by decreasing quantity of orders. Return the product's list with the next fields: name, price, quantity of orders. It is desirable to implement it with SQL-query.
+* Get the list of all products sorted by decreasing quantity of orders. Return the product's list with the next fields: name, price, quantity of orders. It is desirable to implement it with SQL-query. ✅
 
 <ins>Order:</ins>
 * Create order. Order with the products in status OUT_OF_STOCK and without userId can't be created. Upon the successful creation of the order return its id.

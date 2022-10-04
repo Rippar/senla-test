@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
+
 @Slf4j
 @Configuration
 public class JpaConfig {
@@ -66,22 +67,26 @@ public class JpaConfig {
 
             Order order0 = new Order("active", user0);
             Order order1 = new Order("in delivery", user1);
+            Order order2 = new Order("delivered", user0);
 
             orderRepo.save(order0);
             orderRepo.save(order1);
+            orderRepo.save(order2);
             log.info("----------------orders saved-----------------");
 
             OrderItem orderItem0 = new OrderItem(order0, product0, 2);
             OrderItem orderItem01 = new OrderItem(order0, product1, 1);
+            OrderItem orderItem02 = new OrderItem(order0, product2, 3);
             OrderItem orderItem10 = new OrderItem(order1, product2, 1);
             OrderItem orderItem11 = new OrderItem(order1, product3, 2);
-            OrderItem orderItem12 = new OrderItem(order1, product4, 1);;
+            OrderItem orderItem20 = new OrderItem(order2, product0, 1);
 
             orderItemRepo.save(orderItem0);
             orderItemRepo.save(orderItem01);
+            orderItemRepo.save(orderItem02);
             orderItemRepo.save(orderItem10);
             orderItemRepo.save(orderItem11);
-            orderItemRepo.save(orderItem12);
+            orderItemRepo.save(orderItem20);
             log.info("----------------orderItems saved-----------------");
 
 

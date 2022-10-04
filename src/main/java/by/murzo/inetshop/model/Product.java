@@ -57,7 +57,7 @@ public class Product implements Serializable {
     private List<OrderItem> ordersQuantity = new ArrayList<>();
 
     public enum productStatus {
-        OUT_OF_STOCK, IN_STOCK, RUNNING_LOW;
+        OUT_OF_STOCK, IN_STOCK, RUNNING_LOW
     }
 
 }

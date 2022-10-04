@@ -1,5 +1,6 @@
 package by.murzo.inetshop.controller;
 
+import by.murzo.inetshop.projection.ProductView;
 import by.murzo.inetshop.exception.ForbiddanceOnDeletionException;
 import by.murzo.inetshop.model.Product;
 import by.murzo.inetshop.service.ProductService;
@@ -34,7 +35,7 @@ public class ProductController {
     }
 
     @GetMapping(params = "sortedByOrders")
-    public List<Product> sortedProducts() {
+    public List<ProductView> sortedProducts() {
         return productService.getProductsSortedByOrders();
     }
 }

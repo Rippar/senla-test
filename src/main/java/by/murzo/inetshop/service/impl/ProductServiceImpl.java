@@ -1,18 +1,15 @@
 package by.murzo.inetshop.service.impl;
 
+import by.murzo.inetshop.projection.ProductView;
 import by.murzo.inetshop.exception.ForbiddanceOnDeletionException;
 import by.murzo.inetshop.exception.ProductNotFoundException;
 import by.murzo.inetshop.model.Product;
 import by.murzo.inetshop.repository.ProductRepository;
 import by.murzo.inetshop.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
 @RequiredArgsConstructor
@@ -39,8 +36,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProductsSortedByOrders() {
-        Iterable<Product> products = repository.findAll();
-        return StreamSupport.stream(products.spliterator(), false).collect(Collectors.toList());
+    public List<ProductView> getProductsSortedByOrders() {
+        return repository.getSortedProducts();
     }
 }

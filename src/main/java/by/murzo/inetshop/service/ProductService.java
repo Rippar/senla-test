@@ -1,5 +1,6 @@
 package by.murzo.inetshop.service;
 
+import by.murzo.inetshop.projection.ProductView;
 import by.murzo.inetshop.exception.ForbiddanceOnDeletionException;
 import by.murzo.inetshop.model.Product;
 
@@ -11,5 +12,5 @@ public interface ProductService {
 
     void deleteProduct(Long productId) throws ForbiddanceOnDeletionException;
 
-    List<Product> getProductsSortedByOrders();
+    List<ProductView> getProductsSortedByOrders();
 }
