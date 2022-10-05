@@ -17,7 +17,7 @@ The application allows to administrate user's orders via REST-API
 
 <ins>Order:</ins>
 * Create order. Order with the products in status OUT_OF_STOCK and without userId can't be created. Upon the successful creation of the order return its id.
-* Get the list of all orders for the time period sorted by userId and the creation date.
+* Get the list of all orders for the time period sorted by userId and the creation date. ✅
 
 
 

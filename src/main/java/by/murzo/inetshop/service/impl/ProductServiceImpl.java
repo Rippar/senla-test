@@ -6,16 +6,20 @@ import by.murzo.inetshop.exception.ProductNotFoundException;
 import by.murzo.inetshop.model.Product;
 import by.murzo.inetshop.repository.ProductRepository;
 import by.murzo.inetshop.service.ProductService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
+
+    @Autowired
+    public ProductServiceImpl(ProductRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public Product saveProduct(Product product) {

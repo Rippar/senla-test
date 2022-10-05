@@ -12,11 +12,6 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    //    sorted by num of orders created on this product
-//    @Query(value = "SELECT name, price, COUNT(orders_id) AS numOfOrders FROM inetshop.order_items RIGHT JOIN
-//    inetshop" +
-//            ".products ON inetshop.order_items.products_id = inetshop.products.id GROUP BY products_id ORDER BY " +
-//            "numOfOrders DESC", nativeQuery = true)
     @Query(value = "SELECT name, price, SUM(quantity) AS orderedQuantity FROM inetshop.order_items RIGHT JOIN " +
             "inetshop" +
             ".products ON inetshop.order_items.products_id = inetshop.products.id GROUP BY products_id ORDER BY " +
